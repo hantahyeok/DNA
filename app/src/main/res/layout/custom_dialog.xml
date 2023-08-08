@@ -28,7 +28,7 @@
 
 두 문자열의 같은 위치에 있는 두 문자를 비교해 다른 문자의 수를 세는 것입니다.
 (여기에서 연속성은 고려하지 않습니다.) \n\n
-ex)  1011 \n                  0111 => 2 \n \n  ex) acddf \n                  bcdxy => 3"
+ex)  1011 \n                  0111 => 2 \n \n  ex) AGTTC \n                  AATCC => 3"
         android:textColor="@color/black"
         android:textStyle="bold"
         />

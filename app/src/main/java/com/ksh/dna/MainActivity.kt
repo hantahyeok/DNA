@@ -84,6 +84,8 @@ class MainActivity : AppCompatActivity() {
 
             binding.tv1.setText("0%")
             binding.tv2.setText("0")
+
+            binding.tvError.visibility = View.INVISIBLE
         }
 
     }
