@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             if(text1.length != text2.length){
+                binding.tvError.setText("두개의 길이가 달라요!")
                 binding.tvError.visibility = View.VISIBLE
             }
         }
