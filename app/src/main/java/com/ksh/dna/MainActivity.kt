@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     var text1 = ""
     var text2 = ""
     var allText = ""
+    var percentage = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,17 +44,25 @@ class MainActivity : AppCompatActivity() {
 //            A T C G + U
 
 
-            if(text1.length == text2.length){
+            if (text1.length == text2.length) {
                 binding.tvError.visibility = View.INVISIBLE
 
                 if (test(allText)) {
                     binding.tvError.visibility = View.INVISIBLE
 
                     // 염기서열 거리 구하기
-                    val count : Int = hammingDistance(text1, text2)
-                    val percentage = ((count.toDouble() / text1.length.toDouble()) * 100)
-                    binding.tv2.setText(count.toString())
-                    binding.tv1.setText(String.format("%.2f", percentage) + "%")
+                    val count: Int = hammingDistance(text1, text2)
+                    if (text1.isNotEmpty()) {
+
+                        percentage = ((count.toDouble() / text1.length.toDouble()) * 100)
+                        binding.tv2.setText(count.toString())
+                        binding.tv1.setText(String.format("%.2f", percentage) + "%")
+                    }
+
+                    if(text1.isEmpty()){
+                        binding.tvError.setText("값을 입력해주세요!")
+                        binding.tvError.visibility = View.VISIBLE
+                    }
 
 
                 } else {
@@ -63,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            if(text1.length != text2.length){
+            if (text1.length != text2.length) {
                 binding.tvError.setText("두개의 길이가 달라요!")
                 binding.tvError.visibility = View.VISIBLE
             }
